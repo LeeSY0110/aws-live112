@@ -82,7 +82,10 @@
         <div class="u-border-3 u-border-grey-15 u-line u-line-horizontal u-line-1"></div>
         <div class="u-align-center u-table u-table-responsive u-table-1">
           <pwa-container-wrapper style="display: flex !important; height: 0px;"></pwa-container-wrapper>
-          <table class="u-table-entity">
+          
+
+	{% for row in companys %}
+	<table class="u-table-entity">
             <colgroup>
               <col width="28.03%">
               <col width="71.97%">
@@ -96,44 +99,41 @@
             <tbody class="u-align-left u-custom-font u-font-merriweather u-table-body u-table-body-1">
               <tr style="height: 32px;">
                 <td class="u-align-right u-border-1 u-border-black u-table-cell u-table-cell-3">Company Name</td>
-                <td class="u-border-1 u-border-black u-table-cell"></td>
+                <td class="u-border-1 u-border-black u-table-cell">{{row.companyName}}</td>
               </tr>
               <tr style="height: 48px;">
                 <td class="u-align-right u-border-1 u-border-black u-table-cell u-table-cell-5">Email<span style="font-size: 0.75rem;"></span>
                 </td>
-                <td class="u-border-1 u-border-black u-table-cell"></td>
+                <td class="u-border-1 u-border-black u-table-cell">{{row.companyEmail}}</td>
               </tr>
               <tr style="height: 34px;">
                 <td class="u-align-right u-border-1 u-border-black u-table-cell u-table-cell-7">Contact Number</td>
-                <td class="u-border-1 u-border-black u-table-cell"></td>
+                <td class="u-border-1 u-border-black u-table-cell">{{row.companyContact}}</td>
               </tr>
               <tr style="height: 46px;">
                 <td class="u-align-right u-border-1 u-border-black u-table-cell u-table-cell-9">Address</td>
-                <td class="u-border-1 u-border-black u-table-cell"></td>
+                <td class="u-border-1 u-border-black u-table-cell">{{row.companyAddress}}</td>
               </tr>
               <tr style="height: 58px;">
                 <td class="u-align-right u-border-1 u-border-black u-table-cell u-table-cell-11">Type of Business</td>
-                <td class="u-border-1 u-border-black u-table-cell"></td>
+                <td class="u-border-1 u-border-black u-table-cell">{{row.typeOfBusiness}}</td>
               </tr>
               <tr style="height: 58px;">
                 <td class="u-align-right u-border-1 u-border-black u-table-cell u-table-cell-13">Number of Employee</td>
-                <td class="u-border-1 u-border-black u-table-cell"></td>
+                <td class="u-border-1 u-border-black u-table-cell">{{row.numOfEmployee}}</td>
               </tr>
               <tr style="height: 84px;">
                 <td class="u-align-right u-border-1 u-border-black u-table-cell u-table-cell-15">Overview</td>
-                <td class="u-border-1 u-border-black u-table-cell"></td>
+                <td class="u-border-1 u-border-black u-table-cell">{{row.overview}}</td>
               </tr>
 		    <br>
-		    <be>
-		    <tr>1111</tr>
-		    <tr>1111</tr>
-		    <tr>1111</tr>
-
-
+		    <br>
             </tbody>
 
-		  {% endfor %}
           </table>
+
+	 {% endfor %}
+
         </div>
       </div>
     </section>
