@@ -3,6 +3,7 @@ from pymysql import connections
 import os
 import boto3
 from config import *
+from models import Data
 
 app = Flask(__name__)
 
