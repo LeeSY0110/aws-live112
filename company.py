@@ -35,15 +35,6 @@ def companyLogin():
 
 @app.route("/companyReg", methods=['POST'])
 def companyReg():
-    # company_name = request.form['company_name']
-    # email = request.form['email']
-    # contact = request.form['contact']
-    # address = request.form['address']
-    # type_of_business = request.form['type_of_business']
-    # num_of_employee = request.form['num_of_employee']
-    # overview = request.form['overview']
-    # password = request.form['password']
-    
     
     companyName = request.form['companyName']
     companyEmail = request.form['companyEmail']
@@ -53,12 +44,10 @@ def companyReg():
     numOfEmployee = request.form['numOfEmployee']
     overview = request.form['overview']
     companyPassword = request.form['companyPassword']
-    status = request.form['status']
-#   status need to be pending
+    status = pending
     insert_sql = "INSERT INTO company VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
-     
 
     try:
 
