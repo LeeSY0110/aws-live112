@@ -35,7 +35,6 @@ def companyLogin():
 
 @app.route("/companyReg", methods=['POST'])
 def companyReg():
-    
     companyName = request.form['companyName']
     companyEmail = request.form['companyEmail']
     companyContact = request.form['companyContact']
@@ -44,10 +43,13 @@ def companyReg():
     numOfEmployee = request.form['numOfEmployee']
     overview = request.form['overview']
     companyPassword = request.form['companyPassword']
-    status = pending
+    status = "Pending Approval"
+
+   
     insert_sql = "INSERT INTO company VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
+     
 
     try:
 
@@ -62,7 +64,7 @@ def companyReg():
     finally:
         cursor.close()
 
-    print("All modification done...")
+    print("all modification done...")
     return render_template('CompanyLogin.html')
 
 
