@@ -28,9 +28,12 @@ table = 'company'
 
 #new
 @app.route("/")
-def StudViewCompany():
-    all_data = Data.query.all()
-    return render_template('StudViewCompany.html', companies = all_data)
+@app.route("/", methods=['GET', 'POST'])
+def home():
+    return render_template('CompanyRegister.html')
+#def StudViewCompany():
+#    all_data = Data.query.all()
+#    return render_template('StudViewCompany.html', companies = all_data)
 
 
 @app.route("/companyLogin")
