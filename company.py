@@ -27,7 +27,6 @@ table = 'company'
 #if call / then will redirect to that pg
 
 #new
-@app.route("/")
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('CompanyRegister.html')
