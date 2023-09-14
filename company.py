@@ -26,7 +26,7 @@ table = 'company'
 #if call / then will redirect to that pg
 
 #new
-@app.route("/")
+@app.route("/", methods=['POST'])
 def studRegister():
     cohort = request.form['cohort']
     internPeriod = request.form['internPeriod']
