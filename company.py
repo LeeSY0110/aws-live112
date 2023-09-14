@@ -28,7 +28,7 @@ table = 'company'
 #new
 @app.route("/")
 def StudViewCompany():
-    all_data = Data.query.all()
+    all_data = company.query.all()
     return render_template('StudViewCompany.html', companies = all_data)
 
 
