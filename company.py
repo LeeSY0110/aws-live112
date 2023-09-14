@@ -27,7 +27,7 @@ table = 'company'
 
 #new
 @app.route("/", methods=['POST'])
-def companyReg():
+def StudRegister():
     cohort = request.form['cohort']
     internPeriod = request.form['internPeriod']
     studName = request.form['studName']
