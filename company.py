@@ -28,6 +28,7 @@ table = 'company'
 #new
 
 @app.route("/", methods=['POST'])
+@app.route("/companyReg", methods=['POST'])
 def companyReg():
     companyName = request.form['companyName']
     companyEmail = request.form['companyEmail']
@@ -39,21 +40,21 @@ def companyReg():
     companyPassword = request.form['companyPassword']
     status = "Pending Approval"
 
-
+   
     insert_sql = "INSERT INTO company VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
-
+     
 
     try:
 
-        cursor.execute(insert_sql, (companyName, companyEmail, companyContact, companyAddress, typeOfBusiness, numOfEmployee, overview, companyPassword, status))
+        cursor.execute(insert_sql, (companyName, companyEmail, companyContact, companyAddress, typeOfBusiness, numOfEmployee, overview, companyPassword, status,))
         db_conn.commit()
-
+        
 
     except Exception as e:
         return str(e) 
-
+        
 
     finally:
         cursor.close()
