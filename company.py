@@ -98,7 +98,7 @@ def studRegister():
     return render_template('StudRegister.html')
 
 
-@app.route("/")
+@app.route("/StudViewCompany")
 def StudViewCompany():
     status = "Approved"
 
