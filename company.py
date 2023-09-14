@@ -26,7 +26,48 @@ table = 'company'
 #if call / then will redirect to that pg
 
 #new
-@app.route("/")
+@app.route("/", methods=['POST'])
+def companyReg():
+    cohort = request.form['cohort']
+    internPeriod = request.form['internPeriod']
+    studName = request.form['studName']
+    studId = request.form['studId']
+    studIc = request.form['studIc']
+    programme = request.form['programme']
+    studEmail = request.form['studEmail']
+    studContact = request.form['studContact']
+    uniSupervisor = request.form['uniSupervisor']
+    uniEmail = request.form['uniEmail']
+    companyName = request.form['companyName']
+    monthlyAllowance = request.form['monthlyAllowance']
+    companySvName = request.form['companySvName']
+    companySvEmail = request.form['companySvEmail']
+
+   
+    insert_sql = "INSERT INTO student VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+     
+
+    try:
+
+        cursor.execute(insert_sql, (cohort, internPeriod, studName, studId, studIc, programme, studEmail, studContact, uniSupervisor, uniEmail, companyName, 
+                                    monthlyAllowance, companySvName, companySvEmail))
+        db_conn.commit()
+        
+
+    except Exception as e:
+        return str(e) 
+        
+
+    finally:
+        cursor.close()
+
+    print("all modification done...")
+    return render_template('StudRegister.html')
+
+
+@app.route("/StudViewCompany")
 def StudViewCompany():
     status = "Approved"
 
