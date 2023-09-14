@@ -26,7 +26,7 @@ table = 'company'
 #if call / then will redirect to that pg
 
 #new
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
 def StudViewCompany():
     all_data = Data.query.all()
     return render_template('StudViewCompany.html', companies = all_data)
