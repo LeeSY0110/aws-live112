@@ -37,7 +37,7 @@ def StudViewCompany():
         cursor.execute(fetch_company_sql, (status))
         companyRecords = cursor.fetchall()
     
-        return render_template('studViewCompany.html', company=companyRecords)    
+        return render_template('StudViewCompany.html', company=companyRecords)    
 
     except Exception as e:
         return str(e)      
