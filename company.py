@@ -28,8 +28,23 @@ table = 'company'
 #new
 @app.route("/")
 def StudViewCompany():
-    all_data = Company.query.all()
-    return render_template('StudViewCompany.html', companies = all_data)
+    status = "Approved"
+
+    fetch_company_sql = "SELECT * FROM company WHERE status = %s"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(fetch_company_sql, (status))
+        companyRecords = cursor.fetchall()
+    
+        return render_template('studViewCompany.html', company=companyRecords)    
+
+    except Exception as e:
+        return str(e)      
+
+    finally:
+        cursor.close()
+
 
 
 @app.route("/companyLogin")
