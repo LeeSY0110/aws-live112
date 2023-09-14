@@ -89,39 +89,6 @@ def companyLogin():
     return render_template('CompanyLogin.html') 
 
 
-@app.route("/companyReg", methods=['POST'])
-def companyReg():
-    companyName = request.form['companyName']
-    companyEmail = request.form['companyEmail']
-    companyContact = request.form['companyContact']
-    companyAddress = request.form['companyAddress']
-    typeOfBusiness = request.form['typeOfBusiness']
-    numOfEmployee = request.form['numOfEmployee']
-    overview = request.form['overview']
-    companyPassword = request.form['companyPassword']
-    status = "Pending Approval"
-
-   
-    insert_sql = "INSERT INTO company VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
-    cursor = db_conn.cursor()
-
-     
-
-    try:
-
-        cursor.execute(insert_sql, (companyName, companyEmail, companyContact, companyAddress, typeOfBusiness, numOfEmployee, overview, companyPassword, status))
-        db_conn.commit()
-        
-
-    except Exception as e:
-        return str(e) 
-        
-
-    finally:
-        cursor.close()
-
-    print("all modification done...")
-    return render_template('CompanyLogin.html')
 
 
 
