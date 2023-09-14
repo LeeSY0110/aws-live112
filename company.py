@@ -27,7 +27,7 @@ table = 'company'
 
 #new
 
-@app.route("/", methods=['POST'])
+@app.route("/companyReg", methods=['POST'])
 def companyReg():
     companyName = request.form['companyName']
     companyEmail = request.form['companyEmail']
@@ -98,7 +98,7 @@ def studRegister():
     return render_template('StudRegister.html')
 
 
-@app.route("/StudViewCompany")
+@app.route("/")
 def StudViewCompany():
     status = "Approved"
 
