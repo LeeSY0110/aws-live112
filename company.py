@@ -33,26 +33,22 @@ def StudRegister():
     studName = request.form['studName']
     studId = request.form['studId']
     studIc = request.form['studIc']
+    studGender = request.form['studGender']
     programme = request.form['programme']
     studEmail = request.form['studEmail']
     studContact = request.form['studContact']
     uniSupervisor = request.form['uniSupervisor']
     uniEmail = request.form['uniEmail']
-    companyName = request.form['companyName']
-    monthlyAllowance = request.form['monthlyAllowance']
-    companySvName = request.form['companySvName']
-    companySvEmail = request.form['companySvEmail']
 
    
-    insert_sql = "INSERT INTO student VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO student VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
      
 
     try:
 
-        cursor.execute(insert_sql, (cohort, internPeriod, studName, studId, studIc, programme, studEmail, studContact, uniSupervisor, uniEmail, companyName, 
-                                    monthlyAllowance, companySvName, companySvEmail))
+        cursor.execute(insert_sql, (cohort, internPeriod, studName, studId, studIc, studGender, programme, studEmail, studContact, uniSupervisor, uniEmail))
         db_conn.commit()
         
 
