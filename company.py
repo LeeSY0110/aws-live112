@@ -27,7 +27,7 @@ table = 'company'
 
 #new
 
-@app.route("/companyReg", methods=['POST'])
+@app.route("/", methods=['POST'])
 def companyReg():
     companyName = request.form['companyName']
     companyEmail = request.form['companyEmail']
